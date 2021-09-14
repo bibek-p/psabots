@@ -45,15 +45,16 @@ def index(request):
                 counter=11
     else:
          counter=3
+    context={
+        "retext":""
+    }
     if counter==10:
-        return HttpResponse(
-            '''
-            Coupon send to '''+res["rid"]+''' ========> '''+res["noc"]+'''.
-            window.setTimeout(function () {
-                location.reload();
-            }, 2000);
-            
-            '''
-        )
+         context = {
+        'retext': "Coupon send to "+res["rid"]+" ========> "+res["noc"]
+         }
+         
     if counter==-1:
-        return HttpResponse("Session Exparied.")
+         context = {
+        'retext': "Session Expaied"
+         }
+    return render(request, 'bots/index.html', context)
