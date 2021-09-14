@@ -46,15 +46,15 @@ def index(request):
     else:
          counter=3
     context={
-        "retext":""
+        "retext":"Something Went Wrong. Wait I am Reloading  "
     }
     if counter==10:
          context = {
-        'retext': "Coupon send to "+res["rid"]+" ========> "+res["noc"]
+        'retext': "Coupon send to "+res["rid"]+" ========> "+res["noc"]+" . Wait I am Reloading  "
          }
          
     if counter==-1:
          context = {
-        'retext': "Session Expaied"
+        'retext': "Session Expaied. Wait I am Reloading  "
          }
     return render(request, 'bots/index.html', context)
