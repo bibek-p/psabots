@@ -55,7 +55,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(SETTINGS_PATH, 'templates/')],
+        'DIRS': [os.path.join(SETTINGS_PATH, 'bots/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 TEMPLATE_DIRS = (
-    os.path.join(SETTINGS_PATH, 'templates/'),
+    os.path.join(SETTINGS_PATH, 'bots/templates/'),
 )
 
 # Database
