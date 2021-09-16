@@ -10,6 +10,17 @@ def index(request):
     url = "https://bitspanindia.com/getcretid.php"
     response = requests.request("GET", url)
     res=json.loads(response.text)
+
+    url5 = "https://bitspanindia.com/submitapproval.php"
+    payload5={'acs': 'JBJHDY8958asd'}
+    payload5["slno"]=res["slno"]
+    response = requests.request("POST", url5, data=payload5)
+    if(response.text=="1"):
+        # print("Updated")
+        counter=10
+    else:
+        counter=11
+
     # print(res)
       #{"rid":"SK121757","noc":"3","is_e_cup":"0","slno":"708482",'ses': '8A95BD484094C57E9B1DA16EEF1A279B'}
     url = "https://www.psaonline.utiitsl.com/psaonline/ScaCoupdisToMultipleBranch"
@@ -34,15 +45,7 @@ def index(request):
             counter=-1
         else:
             print ("==================>Sent",res["rid"],res["slno"])
-            url5 = "https://bitspanindia.com/submitapproval.php"
-            payload5={'acs': 'JBJHDY8958asd'}
-            payload5["slno"]=res["slno"]
-            response = requests.request("POST", url5, data=payload5)
-            if(response.text=="1"):
-                # print("Updated")
-                counter=10
-            else:
-                counter=11
+            
     else:
          counter=3
     context={
